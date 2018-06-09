@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -8,25 +7,19 @@ class App extends Component {
     this.handleClickBtn = this.handleClickBtn.bind(this);
   }
 
-  componentWillMount() {
-    this.setState({
-      msg: ''
-    })
-  }
-
   handleClickBtn() {
-    this.setState({
-      msg: 'Hello world'
-    })
+    this.props.sayHello();
   }
 
   render() {
-    return (
+    const { msg } = this.props
+
+    return(
       <div>
         <button onClick={ this.handleClickBtn }>Click to Hello</button>
-        <p>{ this.state.msg }</p>
+        <p>{ msg.data }</p>
       </div>
-    );
+    )
   }
 }
 
